@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASCIIArtConsole", "ASCIIArtConsole\ASCIIArtConsole.csproj", "{D1006123-731D-44D6-8C55-136AC8A0F33C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASCIIArtToolbox", "ASCIIArtToolbox\ASCIIArtToolbox.csproj", "{E048A8EB-64E8-48E8-BE53-F03112C84036}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1006123-731D-44D6-8C55-136AC8A0F33C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1006123-731D-44D6-8C55-136AC8A0F33C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1006123-731D-44D6-8C55-136AC8A0F33C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1006123-731D-44D6-8C55-136AC8A0F33C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E048A8EB-64E8-48E8-BE53-F03112C84036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E048A8EB-64E8-48E8-BE53-F03112C84036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E048A8EB-64E8-48E8-BE53-F03112C84036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E048A8EB-64E8-48E8-BE53-F03112C84036}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7DE8AAAA-1335-47CA-BBC5-17547C96E62B}
+	EndGlobalSection
+EndGlobal

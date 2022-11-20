@@ -21,16 +21,5 @@
         {
             throw new NotImplementedException();
         }
-
-        private byte GetPixelValue(Pixel pixel)
-        {
-            throw new NotImplementedException();
-        }
-
-        private List<List<Pixel>> GetImagePixelMap()
-        {
-            // uses prop image
-            throw new NotImplementedException();
-        }
     }
 }

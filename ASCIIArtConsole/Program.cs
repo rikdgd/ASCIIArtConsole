@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ASCIIArtToolbox;
+using System;
 
 namespace ASCIIArtConsole
 {
@@ -6,7 +7,9 @@ namespace ASCIIArtConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ImageReader imageReader = new ImageReader("./images/buurman.png");
+            // var image = imageReader.LoadImage();
+            Console.WriteLine("image read done");
         }
     }
 }

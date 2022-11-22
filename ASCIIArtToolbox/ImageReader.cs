@@ -5,7 +5,8 @@ namespace ASCIIArtToolbox
     public class ImageReader
     {
         private string imagePath;
-        private Image ?image;
+        // private Image ?image;
+        private Bitmap ?image;
         private bool readSuccesful;
 
         public ImageReader(string imagePath)
@@ -18,7 +19,9 @@ namespace ASCIIArtToolbox
         {
             try
             {
-                this.image = Image.FromFile(imagePath);
+                // this.image = Image.FromFile(imagePath);
+                FileStream imgStream = new FileStream(imagePath, FileMode.Open);
+                this.image = new Bitmap(imgStream);
                 this.readSuccesful = true;
             }
             catch(Exception ex)
@@ -28,15 +31,30 @@ namespace ASCIIArtToolbox
             }
         }
 
-        private byte GetPixelValue(Pixel pixel)
+        private Color GetPixelValue(int x, int y)
         {
-            throw new NotImplementedException();
+            return this.image.GetPixel(x, y);
         }
 
         private List<List<Pixel>> GetImagePixelMap()
         {
-            // uses prop image
-            throw new NotImplementedException();
+            List<List<Pixel>> imageList = new List<List<Pixel>>();
+
+            for (int pixelY = 0; pixelY < this.image.Height; pixelY++)
+            {
+                List<Pixel> pixelRowList = new List<Pixel>();
+
+                for( int pixelX = 0; pixelX < this.image.Width; pixelX++)
+                {
+                    Color pixelColor = this.image.GetPixel(pixelX, pixelY);
+                    Pixel nextPixel = new Pixel(pixelColor.R, pixelColor.G, pixelColor.B);
+                    pixelRowList.Add(nextPixel);
+                }
+
+                imageList.Add(pixelRowList);
+            }
+
+            return imageList;
         }
     }
 }

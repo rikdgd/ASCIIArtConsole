@@ -8,11 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ASCIIArtToolbox\ASCIIArtToolbox.csproj" />
+    <Compile Remove="images\**" />
+    <EmbeddedResource Remove="images\**" />
+    <None Remove="images\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="images\" />
+    <ProjectReference Include="..\ASCIIArtToolbox\ASCIIArtToolbox.csproj" />
   </ItemGroup>
 
 </Project>

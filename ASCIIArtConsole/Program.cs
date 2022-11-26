@@ -8,8 +8,14 @@ namespace ASCIIArtConsole
         static void Main(string[] args)
         {
             ImageReader imageReader = new ImageReader("./images/buurman.png");
-            // var image = imageReader.LoadImage();
-            Console.WriteLine("image read done");
+            List<List<int>> brightnessMap = imageReader.GetImageBrightnessMap();
+            
+            foreach(int i in brightnessMap[0])
+            {
+                Console.Write(i + " ");
+            }
+
+            Console.WriteLine("\npixels: " + brightnessMap[0].Count());
         }
     }
 }

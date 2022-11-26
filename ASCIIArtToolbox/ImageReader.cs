@@ -9,11 +9,13 @@ namespace ASCIIArtToolbox
         private Bitmap ?image;
         private bool readSuccesful;
 
+
         public ImageReader(string imagePath)
         {
             this.imagePath = imagePath;
             LoadImage();
         }
+
 
         private void LoadImage()
         {
@@ -31,7 +33,17 @@ namespace ASCIIArtToolbox
             }
         }
 
-        public List<List<Pixel>> GetImagePixelMap()
+
+        public List<List<int>> GetImageBrightnessMap()
+        {
+            List<List<Pixel>> imageMap = GetImagePixelMap();
+            List<List<int>> brightnessMap = ConvertToGrayscale(imageMap);
+
+            return brightnessMap;
+        }
+
+
+        private List<List<Pixel>> GetImagePixelMap()
         {
             List<List<Pixel>> imageList = new List<List<Pixel>>();
 
@@ -52,7 +64,7 @@ namespace ASCIIArtToolbox
             return imageList;
         }
 
-        public List<List<int>> ConvertToGrayscale(List<List<Pixel>> colorPixelMap)
+        private List<List<int>> ConvertToGrayscale(List<List<Pixel>> colorPixelMap)
         {
             List<List<int>> GrayscalePixelMap = new List<List<int>>();
 

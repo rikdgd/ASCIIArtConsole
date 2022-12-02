@@ -60,43 +60,8 @@
 
                 foreach (byte pixelBrightness in imageMapRow)
                 {
-                    // yeah this is very bad I know
-                    if (pixelBrightness <= 31)
-                    {
-                        imageRow.Add(imageCharacterMapping[0]);
-                    }
-                    else if (pixelBrightness > 31 && pixelBrightness <= 62)
-                    {
-                        imageRow.Add(imageCharacterMapping[1]);
-                    }
-                    else if (pixelBrightness > 62 && pixelBrightness <= 93)
-                    {
-                        imageRow.Add(imageCharacterMapping[2]);
-                    }
-                    else if (pixelBrightness > 93 && pixelBrightness <= 124)
-                    {
-                        imageRow.Add(imageCharacterMapping[3]);
-                    }
-                    else if (pixelBrightness > 124 && pixelBrightness <= 155)
-                    {
-                        imageRow.Add(imageCharacterMapping[4]);
-                    }
-                    else if (pixelBrightness > 155 && pixelBrightness <= 186)
-                    {
-                        imageRow.Add(imageCharacterMapping[5]);
-                    }
-                    else if (pixelBrightness > 186 && pixelBrightness <= 217)
-                    {
-                        imageRow.Add(imageCharacterMapping[6]);
-                    }
-                    else if (pixelBrightness > 217 && pixelBrightness <= 255)
-                    {
-                        imageRow.Add(imageCharacterMapping[7]);
-                    }
-                    else
-                    {
-                        imageRow.Add('0');
-                    }
+                    char pixelChar = ConvertPixelBrightnessToCharacter(pixelBrightness);
+                    imageRow.Add(pixelChar);
                 }
 
                 ASCIIimageMap.Add(imageRow);
@@ -106,9 +71,45 @@
         }
 
 
-        private char ConvertPixelValueToCharacter(byte pixelValue)
+        private char ConvertPixelBrightnessToCharacter(byte pixelValue)
         {
-            throw new NotImplementedException();
+            char pixelCharacter = '0';
+
+            // yeah this is very bad I know
+            if (pixelValue <= 31)
+            {
+                pixelCharacter = imageCharacterMapping[0];
+            }
+            else if (pixelValue > 31 && pixelValue <= 62)
+            {
+                pixelCharacter = imageCharacterMapping[1];
+            }
+            else if (pixelValue > 62 && pixelValue <= 93)
+            {
+                pixelCharacter = imageCharacterMapping[2];
+            }
+            else if (pixelValue > 93 && pixelValue <= 124)
+            {
+                pixelCharacter = imageCharacterMapping[3];
+            }
+            else if (pixelValue > 124 && pixelValue <= 155)
+            {
+                pixelCharacter = imageCharacterMapping[4];
+            }
+            else if (pixelValue > 155 && pixelValue <= 186)
+            {
+                pixelCharacter = imageCharacterMapping[5];
+            }
+            else if (pixelValue > 186 && pixelValue <= 217)
+            {
+                pixelCharacter = imageCharacterMapping[6];
+            }
+            else if (pixelValue > 217 && pixelValue <= 255)
+            {
+                pixelCharacter = imageCharacterMapping[7];
+            }
+
+            return pixelCharacter;
         }
     }
 }

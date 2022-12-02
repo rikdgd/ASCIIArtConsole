@@ -2,11 +2,11 @@
 {
     public class ImageConverter
     {
-        private int image;
+        private List<List<Pixel>> image;
         private int[] convertedImageSize;
 
 
-        public ImageConverter(int image, int[] convertedImageSize)
+        public ImageConverter(List<List<Pixel>> image, int[] convertedImageSize)
         {
             this.image = image;
             this.convertedImageSize = convertedImageSize;

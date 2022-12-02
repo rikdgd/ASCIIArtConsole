@@ -11,12 +11,13 @@ namespace ASCIIArtConsole
             List<List<Pixel>> imageMap = imageReader.GetImagePixelMap();
 
             ImageConverter imageConverter = new ImageConverter(imageMap, new int[2] { 200, 200 });
-            List<List<byte>> brightnessMap = imageConverter.ConvertToGrayscale();
+            List<List<byte>> brightnessMap = imageConverter.GetImageBrightnessMap();
+            List<List<char>> asciiImageMap = imageConverter.GenerateASCIIimage();
 
 
-            foreach (int i in brightnessMap[0])
+            foreach (char i in asciiImageMap[20])
             {
-                Console.Write(i + " ");
+                Console.Write(i);
             }
 
             Console.WriteLine("\npixels: " + brightnessMap[0].Count());

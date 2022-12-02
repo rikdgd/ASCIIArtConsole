@@ -25,6 +25,10 @@
         }
 
 
+        /// <summary>
+        /// Gets the brightness of each individual pixel in an image pixel map.
+        /// </summary>
+        /// <returns></returns>
         public List<List<byte>> GetImageBrightnessMap()
         {
             List<List<byte>> GrayscalePixelMap = new List<List<byte>>();
@@ -49,6 +53,10 @@
         }
 
 
+        /// <summary>
+        /// Uses the overal brightness of each pixel to map them to ASCII characters. 
+        /// </summary>
+        /// <returns></returns>
         public List<List<char>> GenerateASCIIimage()
         {
             List<List<char>> ASCIIimageMap = new List<List<char>>();

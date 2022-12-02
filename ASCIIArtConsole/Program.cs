@@ -8,7 +8,7 @@ namespace ASCIIArtConsole
         static void Main(string[] args)
         {
             ImageReader imageReader = new ImageReader("./images/buurman.png");
-            List<List<int>> brightnessMap = imageReader.GetImageBrightnessMap();
+            List<List<byte>> brightnessMap = imageReader.GetImageBrightnessMap();
             
             foreach(int i in brightnessMap[0])
             {

@@ -34,10 +34,10 @@ namespace ASCIIArtToolbox
         }
 
 
-        public List<List<int>> GetImageBrightnessMap()
+        public List<List<byte>> GetImageBrightnessMap()
         {
             List<List<Pixel>> imageMap = GetImagePixelMap();
-            List<List<int>> brightnessMap = ConvertToGrayscale(imageMap);
+            List<List<byte>> brightnessMap = ConvertToGrayscale(imageMap);
 
             return brightnessMap;
         }
@@ -64,19 +64,19 @@ namespace ASCIIArtToolbox
             return imageList;
         }
 
-        private List<List<int>> ConvertToGrayscale(List<List<Pixel>> colorPixelMap)
+        private List<List<byte>> ConvertToGrayscale(List<List<Pixel>> colorPixelMap)
         {
-            List<List<int>> GrayscalePixelMap = new List<List<int>>();
+            List<List<byte>> GrayscalePixelMap = new List<List<byte>>();
 
             foreach(List<Pixel> pixelRow in colorPixelMap)
             {
-                List<int> grayscalePixelRow = new List<int>();
+                List<byte> grayscalePixelRow = new List<byte>();
 
                 foreach(Pixel pixel in pixelRow)
                 {
                     // Good values for the human eye.
                     double brightness = 0.2126 * pixel.Red + 0.7152 * pixel.Green + 0.0722 * pixel.Blue;
-                    int roundBrightness = Convert.ToInt32(Math.Round(brightness));
+                    byte roundBrightness = Convert.ToByte(Math.Round(brightness));
 
                     grayscalePixelRow.Add(roundBrightness);
                 }

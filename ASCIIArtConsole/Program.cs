@@ -5,9 +5,15 @@ namespace ASCIIArtConsole
 {
     internal class Program
     {
+        [STAThreadAttribute]
         static void Main(string[] args)
         {
-            ImageReader imageReader = new ImageReader("./images/buurman.png"); //windows
+            Console.WriteLine("Enter the path to the image you want to convert to ASCII: ");
+            string ?imagePath = Console.ReadLine();
+            Console.WriteLine("\n");
+
+            ImageReader imageReader = new ImageReader(imagePath);
+            //ImageReader imageReader = new ImageReader("./images/buurman.png"); //windows
             // ImageReader imageReader = new ImageReader("./bin/Debug/net6.0/images/buurman.png"); //linux
             List<List<Pixel>> imageMap = imageReader.GetImagePixelMap();
 

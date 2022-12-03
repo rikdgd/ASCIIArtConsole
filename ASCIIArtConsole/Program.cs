@@ -18,6 +18,7 @@ namespace ASCIIArtConsole
             ASCIIFormatter asciiFormatter = new ASCIIFormatter(asciiImageMap);
             string imageString = asciiFormatter.ConvertToASCIIstring();
             Console.WriteLine(imageString);
+            Console.WriteLine("\n");
         }
     }
 }

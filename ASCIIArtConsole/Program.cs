@@ -25,6 +25,8 @@ namespace ASCIIArtConsole
             string imageString = asciiFormatter.ConvertToASCIIstring();
             Console.WriteLine(imageString);
             Console.WriteLine("\n");
+
+            Console.Read();
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿namespace ASCIIArtToolbox
+﻿using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Drawing;
+
+namespace ASCIIArtToolbox
 {
     public class ImageConverter
     {

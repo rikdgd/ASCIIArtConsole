@@ -33,6 +33,10 @@ namespace ASCIIArtToolbox
             }
         }
 
+        public Bitmap GetBitmap()
+        {
+            return this.image;
+        }
 
         public List<List<Pixel>> GetImagePixelMap()
         {

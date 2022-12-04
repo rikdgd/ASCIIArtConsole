@@ -25,5 +25,23 @@ namespace ASCIIArtToolbox
 
             return asciiString;
         }
+
+        public List<string> ConvertToASCIIstringList()
+        {
+            List<string> asciiImageMapping = new List<string>();
+
+            foreach (List<char> imageRow in asciiImageMap)
+            {
+                string asciiRow = "";
+                foreach (char asciiChar in imageRow)
+                {
+                    asciiRow += asciiChar;
+                }
+
+                asciiImageMapping.Add(asciiRow);
+            }
+
+            return asciiImageMapping;
+        }
     }
 }

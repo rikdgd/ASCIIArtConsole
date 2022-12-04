@@ -43,14 +43,22 @@ namespace ASCIIArtConsole
             List<List<char>> asciiImageMap = imageConverter.GenerateASCIIimage();
 
             ASCIIFormatter asciiFormatter = new ASCIIFormatter(asciiImageMap);
-            string imageString = asciiFormatter.ConvertToASCIIstring();
-            Console.WriteLine(imageString);
-            Console.WriteLine("\n");
+            List<string> imageStringList = asciiFormatter.ConvertToASCIIstringList();
+            
+            for (int rowNumber = 0; rowNumber < imageStringList.Count(); rowNumber++)
+            {
+                Console.WriteLine(imageStringList[rowNumber]);
+                //Console.WriteLine("\n");
+            }
 
             // Write the string to a new file
             using (StreamWriter outputFile = new StreamWriter(Path.Combine(saveLocation, "ASCII-Art.txt")))
             {
-               outputFile.WriteLine(imageString);
+                for (int rowNumber = 0; rowNumber < imageStringList.Count(); rowNumber++)
+                {
+                    outputFile.WriteLine(imageStringList[rowNumber]);
+                    //Console.WriteLine("\n");
+                }
             }
 
             Console.Read();

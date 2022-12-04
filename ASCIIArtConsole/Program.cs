@@ -51,14 +51,41 @@ namespace ASCIIArtConsole
                 //Console.WriteLine("\n");
             }
 
-            // Write the string to a new file
-            using (StreamWriter outputFile = new StreamWriter(Path.Combine(saveLocation, "ASCII-Art.txt")))
+            if(saveLocation.Length > 10)
             {
-                for (int rowNumber = 0; rowNumber < imageStringList.Count(); rowNumber++)
+                // Try to write the string to a new file
+
+                try
                 {
-                    outputFile.WriteLine(imageStringList[rowNumber]);
-                    //Console.WriteLine("\n");
+                    string outputFileName = "ASCII-Art.txt";
+                    using (StreamWriter outputFile = new StreamWriter(Path.Combine(saveLocation, outputFileName)))
+                    {
+                        for (int rowNumber = 0; rowNumber < imageStringList.Count(); rowNumber++)
+                        {
+                            outputFile.WriteLine(imageStringList[rowNumber]);
+                            //Console.WriteLine("\n");
+                        }
+                    }
+
+                    Console.WriteLine("\n\nArt saved at: " + saveLocation + outputFileName);
                 }
+                catch
+                {
+                    Console.WriteLine("\n\nFailed to save to file");
+                }
+
+                using (StreamWriter outputFile = new StreamWriter(Path.Combine(saveLocation, "ASCII-Art.txt")))
+                {
+                    for (int rowNumber = 0; rowNumber < imageStringList.Count(); rowNumber++)
+                    {
+                        outputFile.WriteLine(imageStringList[rowNumber]);
+                        //Console.WriteLine("\n");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("\n\nDid not save to file");
             }
 
             Console.Read();

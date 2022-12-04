@@ -49,20 +49,21 @@ namespace ASCIIArtToolbox
         /// </summary>
         /// <param name="image">the image to resize</param>
         /// <returns>The resized image as a bitmap</returns>
-        public static Bitmap PrepareForASCII(Image image, bool fitConsole)
+        public static Bitmap PrepareForASCII(Image image, bool fitConsoleWidth)
         {
-            double scalingFactor = (double)Console.BufferWidth / (double)image.Width;
-
-            int newImageWidth = Console.BufferWidth;
+            int newImageWidth;
             int newImageHeight;
 
-            if (fitConsole)
+            if (fitConsoleWidth)
             {
+                double scalingFactor = (double)Console.BufferWidth / (double)image.Width;
                 newImageHeight = (int)Math.Round(image.Height * scalingFactor / 2);
+                newImageWidth = Console.BufferWidth;
             }
             else
             {
-                newImageHeight = (int)Math.Round(image.Height * scalingFactor);
+                newImageHeight = image.Height / 2;
+                newImageWidth = image.Width;
             }
             
 

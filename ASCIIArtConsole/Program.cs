@@ -16,6 +16,10 @@ namespace ASCIIArtConsole
 
             Console.WriteLine("Do you want the image to fit the console? (y/n)");
             string fitScreen = Console.ReadLine();
+            Console.WriteLine("\n");
+
+            Console.WriteLine("Enter location to write to: (leave blank for none)");
+            string saveLocation = Console.ReadLine();
 
             Console.Clear();
 
@@ -42,6 +46,12 @@ namespace ASCIIArtConsole
             string imageString = asciiFormatter.ConvertToASCIIstring();
             Console.WriteLine(imageString);
             Console.WriteLine("\n");
+
+            // Write the string to a new file
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(saveLocation, "ASCII-Art.txt")))
+            {
+               outputFile.WriteLine(imageString);
+            }
 
             Console.Read();
         }

@@ -14,9 +14,26 @@ namespace ASCIIArtConsole
             string ?imagePath = Console.ReadLine();
             Console.WriteLine("\n");
 
-            Bitmap transformedImage = ImageTransformer.ResizeFitConsole(ImageReader.GetBitmapImage(imagePath));
+            Console.WriteLine("Do you want the image to fit the console? (y/n)");
+            string fitScreen = Console.ReadLine();
+
+            Console.Clear();
+
+            Bitmap image = ImageReader.GetBitmapImage(imagePath);
+
+            if (fitScreen == "y" || fitScreen == "Y")
+            {
+                Bitmap transformedImage = ImageTransformer.PrepareForASCII(image, true);
+                image = transformedImage;
+            }
+            else
+            {
+                Bitmap transformedImage = ImageTransformer.PrepareForASCII(image, false);
+                image = transformedImage;
+            }
+
             
-            List<List<Pixel>> imageMap = ImageReader.GetImagePixelMap(transformedImage);
+            List<List<Pixel>> imageMap = ImageReader.GetImagePixelMap(image);
 
             ImageConverter imageConverter = new ImageConverter(imageMap);
             List<List<char>> asciiImageMap = imageConverter.GenerateASCIIimage();

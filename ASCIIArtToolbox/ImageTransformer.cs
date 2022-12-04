@@ -44,13 +44,19 @@ namespace ASCIIArtToolbox
             return destImage;
         }
 
-
+        /// <summary>
+        /// Resizes a image to fit the console. Also halves the height because of the size of characters.
+        /// </summary>
+        /// <param name="image">the image to resize</param>
+        /// <returns>The resized image as a bitmap</returns>
         public static Bitmap ResizeFitConsole(Image image)
         {
-            double scalingFactor = Console.BufferWidth / image.Width;
+            double scalingFactor = (double)Console.BufferWidth / (double)image.Width;
 
             int newImageWidth = Console.BufferWidth;
-            int newImageHeight = (int) Math.Round(image.Height * scalingFactor);
+            int newImageHeight = (int) Math.Round(image.Height * scalingFactor / 2);
+
+            return ResizeImage(image, newImageWidth, newImageHeight);
         }
     }
 }

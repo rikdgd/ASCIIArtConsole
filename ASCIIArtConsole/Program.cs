@@ -1,6 +1,7 @@
 ﻿using ASCIIArtToolbox;
 using System;
 using System.Drawing;
+using ImageConverter = ASCIIArtToolbox.ImageConverter;
 
 namespace ASCIIArtConsole
 {
@@ -13,16 +14,11 @@ namespace ASCIIArtConsole
             string ?imagePath = Console.ReadLine();
             Console.WriteLine("\n");
 
-            ImageReader imageReader = new ImageReader(imagePath);
-            //ImageReader imageReader = new ImageReader("./images/buurman.png"); //windows
-            // ImageReader imageReader = new ImageReader("./bin/Debug/net6.0/images/buurman.png"); //linux
-
-            Bitmap transformedImage = ImageTransformer.ResizeImage(imageReader.GetBitmap);
+            Bitmap transformedImage = ImageTransformer.ResizeFitConsole(ImageReader.GetBitmapImage(imagePath));
             
-            List<List<Pixel>> imageMap = imageReader.GetImagePixelMap();
+            List<List<Pixel>> imageMap = ImageReader.GetImagePixelMap(transformedImage);
 
-            ImageConverter imageConverter = new ImageConverter(imageMap, new int[2] { 200, 200 });
-            List<List<byte>> brightnessMap = imageConverter.GetImageBrightnessMap();
+            ImageConverter imageConverter = new ImageConverter(imageMap);
             List<List<char>> asciiImageMap = imageConverter.GenerateASCIIimage();
 
             ASCIIFormatter asciiFormatter = new ASCIIFormatter(asciiImageMap);

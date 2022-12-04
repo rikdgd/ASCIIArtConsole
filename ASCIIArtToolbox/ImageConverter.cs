@@ -7,7 +7,6 @@ namespace ASCIIArtToolbox
     public class ImageConverter
     {
         private List<List<Pixel>> image;
-        private int[] convertedImageSize;
 
         private static List<char> imageCharacterMapping = new List<char>
         {
@@ -22,10 +21,9 @@ namespace ASCIIArtToolbox
         };
 
 
-        public ImageConverter(List<List<Pixel>> image, int[] convertedImageSize)
+        public ImageConverter(List<List<Pixel>> image)
         {
             this.image = image;
-            this.convertedImageSize = convertedImageSize;
         }
 
 

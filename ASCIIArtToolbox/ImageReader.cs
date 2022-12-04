@@ -2,53 +2,33 @@
 
 namespace ASCIIArtToolbox
 {
-    public class ImageReader
+    public static class ImageReader
     {
-        private string imagePath;
-        // private Image ?image;
-        private Bitmap ?image;
-        private bool readSuccesful;
-
-
-        public ImageReader(string imagePath)
-        {
-            this.imagePath = imagePath;
-            LoadImage();
-        }
-
-
-        private void LoadImage()
+        public static Bitmap GetBitmapImage(string imagePath)
         {
             try
             {
                 // this.image = Image.FromFile(imagePath);
                 FileStream imgStream = new FileStream(imagePath, FileMode.Open);
-                this.image = new Bitmap(imgStream);
-                this.readSuccesful = true;
+                return new Bitmap(imgStream);
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                this.readSuccesful = false;
+                throw;
             }
         }
 
-        public Bitmap GetBitmap()
-        {
-            return this.image;
-        }
-
-        public List<List<Pixel>> GetImagePixelMap()
+        public static List<List<Pixel>> GetImagePixelMap(Bitmap bitmapImage)
         {
             List<List<Pixel>> imageList = new List<List<Pixel>>();
 
-            for (int pixelY = 0; pixelY < this.image.Height; pixelY++)
+            for (int pixelY = 0; pixelY < bitmapImage.Height; pixelY++)
             {
                 List<Pixel> pixelRowList = new List<Pixel>();
 
-                for( int pixelX = 0; pixelX < this.image.Width; pixelX++)
+                for (int pixelX = 0; pixelX < bitmapImage.Width; pixelX++)
                 {
-                    Color pixelColor = this.image.GetPixel(pixelX, pixelY);
+                    Color pixelColor = bitmapImage.GetPixel(pixelX, pixelY);
                     Pixel nextPixel = new Pixel(pixelColor.R, pixelColor.G, pixelColor.B);
                     pixelRowList.Add(nextPixel);
                 }

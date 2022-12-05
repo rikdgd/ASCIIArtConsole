@@ -58,7 +58,7 @@ namespace ASCIIArtToolbox
             {
                 double scalingFactor = (double)Console.BufferWidth / (double)image.Width;
                 newImageHeight = (int)Math.Round(image.Height * scalingFactor / 2);
-                newImageWidth = Console.BufferWidth;
+                newImageWidth = Console.BufferWidth - 1;
             }
             else
             {

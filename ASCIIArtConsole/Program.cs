@@ -73,15 +73,6 @@ namespace ASCIIArtConsole
                 {
                     Console.WriteLine("\n\nFailed to save to file");
                 }
-
-                using (StreamWriter outputFile = new StreamWriter(Path.Combine(saveLocation, "ASCII-Art.txt")))
-                {
-                    for (int rowNumber = 0; rowNumber < imageStringList.Count(); rowNumber++)
-                    {
-                        outputFile.WriteLine(imageStringList[rowNumber]);
-                        //Console.WriteLine("\n");
-                    }
-                }
             }
             else
             {

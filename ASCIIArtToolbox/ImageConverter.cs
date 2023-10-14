@@ -35,7 +35,7 @@ namespace ASCIIArtToolbox
         {
             List<List<byte>> GrayscalePixelMap = new List<List<byte>>();
 
-            foreach (List<Pixel> pixelRow in image)
+            foreach (List<Pixel> pixelRow in this.image)
             {
                 List<byte> grayscalePixelRow = new List<byte>();
 
